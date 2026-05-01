@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The future of electricity and home electrification | EnergySage</title>
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #1a202c;
+      background: #fff;
+    }
+
+    a { color: #1b1763; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── NAV ── */
+    .nav {
+      background: #fff;
+      border-bottom: 1px solid #e2e8f0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 20px;
+      font-weight: 700;
+      color: #1b1763;
+      text-decoration: none;
+    }
+    .nav-logo svg { width: 28px; height: 28px; }
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: #374151;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background 0.15s;
+    }
+    .nav-links a:hover { background: #f3f4f6; text-decoration: none; }
+    .nav-actions { display: flex; gap: 8px; align-items: center; }
+    .btn-signin {
+      font-size: 14px;
+      font-weight: 500;
+      color: #1b1763;
+      padding: 8px 16px;
+      border: 1px solid #1b1763;
+      border-radius: 6px;
+    }
+    .btn-quotes {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      padding: 8px 16px;
+      background: #1b1763;
+      border-radius: 6px;
+    }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 16px 24px 0;
+      font-size: 13px;
+      color: #6b7280;
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .breadcrumb a { color: #6b7280; }
+    .breadcrumb span { color: #9ca3af; }
+
+    /* ── ARTICLE HEADER ── */
+    .article-header {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 24px 24px 32px;
+    }
+    .article-tag {
+      display: inline-block;
+      background: #ddedff;
+      color: #1b1763;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+    .article-title {
+      font-size: 40px;
+      font-weight: 800;
+      color: #1a202c;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .article-meta {
+      font-size: 14px;
+      color: #6b7280;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .article-meta span { display: flex; align-items: center; gap: 4px; }
+
+    /* ── HERO IMAGE ── */
+    .hero-image {
+      max-width: 860px;
+      margin: 0 auto 40px;
+      padding: 0 24px;
+    }
+    .hero-image-inner {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      display: block;
+    }
+    .hero-image-inner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ── ARTICLE BODY ── */
+    .article-body {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+    }
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.75;
+      color: #374151;
+      margin-bottom: 20px;
+    }
+    .article-body h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1a202c;
+      margin: 40px 0 16px;
+    }
+    .article-body ul {
+      margin: 0 0 20px 24px;
+    }
+    .article-body li {
+      font-size: 17px;
+      line-height: 1.75;
+      color: #374151;
+      margin-bottom: 8px;
+    }
+    .stat-callout {
+      background: #ddedff;
+      border-left: 4px solid #1b1763;
+      border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin: 28px 0;
+    }
+    .stat-callout p {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1b1763;
+      margin: 0;
+    }
+
+    /* ── INLINE CTA CARD ── */
+    .cta-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 32px;
+      margin: 36px 0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .cta-card .cta-heading {
+      font-size: 22px;
+      font-weight: 700;
+      color: #111827;
+      line-height: 1.3;
+      margin: 0 0 10px;
+    }
+    .cta-body {
+      font-size: 15px;
+      color: #4b5563;
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+    .cta-form {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .cta-input {
+      flex: 1;
+      padding: 13px 16px;
+      font-size: 15px;
+      border: 1.5px solid #d1d5db;
+      border-radius: 8px;
+      color: #111827;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .cta-input::placeholder { color: #9ca3af; }
+    .cta-input:focus { border-color: #1b1763; }
+    .cta-btn {
+      padding: 13px 22px;
+      background: #3b3cb8;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .cta-btn:hover { background: #2e2f9a; }
+    .cta-privacy {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: #6b7280;
+    }
+    .cta-privacy a { color: #1b1763; font-weight: 500; }
+    .cta-privacy svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #1b1763;
+      color: #fff;
+      padding: 48px 24px 32px;
+    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 32px;
+      display: block;
+    }
+    .footer-cols {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #85b2ff;
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a { font-size: 14px; color: rgba(255,255,255,0.75); }
+    .footer-col a:hover { color: #fff; text-decoration: none; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.5); }
+    .footer-legal { display: flex; gap: 16px; flex-wrap: wrap; }
+    .footer-legal a { font-size: 13px; color: rgba(255,255,255,0.5); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <svg viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="14" r="14" fill="#ff9133"/>
+          <path d="M14 6l2.5 5.5H22l-4.5 3.5 1.5 5.5L14 17.5 9 20.5l1.5-5.5L6 11.5h5.5L14 6z" fill="#fff"/>
+        </svg>
+        EnergySage
+      </a>
+      <ul class="nav-links">
+        <li><a href="#">Home solar</a></li>
+        <li><a href="#">Home battery</a></li>
+        <li><a href="#">EV charging</a></li>
+        <li><a href="#">Heat pumps</a></li>
+        <li><a href="#">Electricity plans</a></li>
+        <li><a href="#">News</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="#" class="btn-signin">Sign in</a>
+        <a href="#" class="btn-quotes">Get quotes</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="breadcrumb">
+    <a href="#">Home</a>
+    <span>›</span>
+    <a href="#">Electricity</a>
+    <span>›</span>
+    <span style="color:#374151;">The future of electricity and home electrification</span>
+  </nav>
+
+  <!-- ARTICLE HEADER -->
+  <header class="article-header">
+    <span class="article-tag">Electricity plans</span>
+    <h1 class="article-title">The EnergySage guide to home electrification</h1>
+    <div class="article-meta">
+      <span>Written by Liam McCabe</span>
+      <span>·</span>
+      <span>Updated July 1, 2024</span>
+      <span>·</span>
+      <span>8 min read</span>
+    </div>
+  </header>
+
+  <!-- HERO IMAGE -->
+  <div class="hero-image">
+    <div class="hero-image-inner">
+      <img src="https://a-us.storyblok.com/f/1006159/6480x3761/1cadff627d/hero-home-electrification-101.png/m/1620x0/filters:quality(90)" alt="Isometric illustration of a home with solar panels, EV charger, and heat pump">
+    </div>
+  </div>
+
+  <!-- ARTICLE BODY -->
+  <main class="article-body">
+    <p>Home electrification means upgrading your home to run entirely on electricity rather than fossil fuels like gas, propane, or oil. It's becoming more common — and more affordable — thanks to advances in technology, federal incentives, and rising interest in energy independence.</p>
+
+    <!-- CTA CARD — Variant A -->
+    <div class="cta-card">
+      <h2 class="cta-heading">Plan ahead to lower your energy bills</h2>
+      <p class="cta-body">We'll look at your home details and show you how home electrification projects can lower your energy bills.</p>
+      <div class="cta-form">
+        <input class="cta-input" type="text" placeholder="Enter ZIP code or address" aria-label="ZIP code or address">
+        <button class="cta-btn">Explore options</button>
+      </div>
+      <div class="cta-privacy">
+        <svg viewBox="0 0 14 14" fill="none">
+          <rect x="2" y="6" width="10" height="7" rx="1.5" stroke="#9ca3af" stroke-width="1.4"/>
+          <path d="M4.5 6V4.5a2.5 2.5 0 015 0V6" stroke="#9ca3af" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        Your information is safe with us. <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+
+    <div class="stat-callout">
+      <p>Over a quarter of all U.S. households now have all-electric major appliances, according to the Department of Energy.</p>
+    </div>
+
+    <p>Heat pumps outsold gas furnaces in the U.S. for the first time in 2023. Nearly 5% of homes have rooftop solar, and over 1 million electric vehicles were sold in the U.S. last year. Home electrification isn't a niche trend — it's becoming mainstream.</p>
+
+    <h2>Why switch to an all-electric home?</h2>
+    <p>There are several compelling reasons homeowners are making the switch:</p>
+    <ul>
+      <li><strong>Energy independence.</strong> Solar panels paired with a home battery can reduce your reliance on the utility grid.</li>
+      <li><strong>Potential cost savings.</strong> Federal and state incentives can significantly offset upfront costs, and electric appliances often cost less to operate.</li>
+      <li><strong>Improved air quality.</strong> Eliminating gas appliances removes sources of carbon monoxide and nitrogen dioxide from your home.</li>
+      <li><strong>Better performance.</strong> Heat pumps, induction ranges, and EVs often outperform their fossil-fuel counterparts.</li>
+      <li><strong>Lower environmental impact.</strong> Even with grid electricity, all-electric homes typically produce fewer emissions than gas-powered ones.</li>
+    </ul>
+
+    <h2>What can you electrify?</h2>
+    <p>Almost everything in your home can run on electricity. The biggest opportunities are:</p>
+    <ul>
+      <li><strong>Heating and cooling</strong> — heat pumps replace both furnaces and central air conditioners</li>
+      <li><strong>Water heating</strong> — heat pump water heaters are 2–3x more efficient than resistance electric models</li>
+      <li><strong>Cooking</strong> — induction ranges heat faster and more precisely than gas</li>
+      <li><strong>Transportation</strong> — EVs paired with home charging eliminate trips to the gas station</li>
+      <li><strong>Solar and storage</strong> — rooftop solar "supercharges" the benefits of every other upgrade</li>
+    </ul>
+
+    <h2>What's the right order to go electric?</h2>
+    <p>Start with a home energy audit. Many states offer free or subsidized audits that identify where to improve insulation, seal air leaks, and assess your electrical panel capacity before you start adding new electric loads.</p>
+    <p>The most cost-effective approach for most households is to electrify appliances as they reach end of life — rather than replacing functioning equipment early. The exception: if you're currently heating with propane or resistance electric heat, switching to a heat pump right away is likely to pay off quickly.</p>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-logo">EnergySage</span>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Our offerings</h4>
+          <ul>
+            <li><a href="#">Home solar</a></li>
+            <li><a href="#">Home battery</a></li>
+            <li><a href="#">EV charging</a></li>
+            <li><a href="#">Heat pumps</a></li>
+            <li><a href="#">Electricity plans</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Solar calculator</a></li>
+            <li><a href="#">Solar rebates</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Newsletter</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>About us</h4>
+          <ul>
+            <li><a href="#">Mission &amp; values</a></li>
+            <li><a href="#">How it works</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Work with us</h4>
+          <ul>
+            <li><a href="#">Solar installers</a></li>
+            <li><a href="#">HVAC installers</a></li>
+            <li><a href="#">Corporate partnerships</a></li>
+            <li><a href="#">Utility programs</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© Copyright 2009–2026 EnergySage, Inc. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Terms of use</a>
+          <a href="#">Privacy policy</a>
+          <a href="#">Non-discrimination policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
